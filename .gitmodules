@@ -1,0 +1,6 @@
+[submodule "lib/TONNXRuntime"]
+	path = lib/TONNXRuntime
+	url = https://github.com/hshatti/TONNXRuntime.git
+[submodule "lib/BertTokenizer4D"]
+	path = lib/BertTokenizer4D
+	url = https://github.com/Samaliani/BertTokenizer4D.git
