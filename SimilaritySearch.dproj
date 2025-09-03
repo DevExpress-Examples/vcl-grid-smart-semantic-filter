@@ -91,7 +91,7 @@
         <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
-        <DCC_UnitSearchPath>C:\Sources_GIT\Misc\BertTokenizer4D\Src\BertTokenizer;C:\Sources_GIT\Misc\TONNXRuntime\source;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <DCC_UnitSearchPath>.\lib\BertTokenizer4D\Src\BertTokenizer;.\lib\TONNXRuntime\source;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
         <AppDPIAwarenessMode>none</AppDPIAwarenessMode>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1)'!=''">
@@ -126,6 +126,8 @@
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win64)'!=''">
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Locale>1033</VerInfo_Locale>
     </PropertyGroup>
     <ItemGroup>
         <DelphiCompile Include="$(MainSource)">
@@ -134,7 +136,6 @@
         <DCCReference Include="Similarity.pas">
             <Form>frmSimilarity</Form>
         </DCCReference>
-        <DCCReference Include="..\..\..\Misc\BertTokenizer4D\Src\BertTokenizer\BertTokenizer.pas"/>
         <DCCReference Include="SimilaritySearch.dxSettings.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
