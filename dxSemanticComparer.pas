@@ -26,7 +26,25 @@ uses
 type
   TTensorLocal = TORTTensor<Single>;
 
-  TEmbedding = TList<Single>;
+  TEmbedding = class
+  private
+    FList: TList<Single>;
+    FSumRoot: Single;
+    function GetCount: Integer;
+    procedure SetCount(const AValue: Integer);
+    function GetItem(AIndex: Integer): Single;
+    procedure SetItem(AIndex: Integer; const AValue: Single);
+    function GetSumOfSquaresRoot: Single;
+  protected
+    class function Dot(AEmbedding1: TEmbedding; AEmbedding2: TEmbedding): Single;
+    property SumOfSquaresRoot: Single read GetSumOfSquaresRoot;
+  public
+    constructor Create;
+    destructor Destroy; override;
+
+    property Count: Integer read GetCount write SetCount;
+    property Items[AIndex: Integer]: Single read GetItem write SetItem; default;
+  end;
 
   TdxHuggingFaceModelLoader = class
   private
@@ -139,25 +157,8 @@ end;
 
 // This method computes TensorPrimitives.Dot(x, y) / (T.Sqrt(TensorPrimitives.SumOfSquares(x)) * T.Sqrt(TensorPrimitives.SumOfSquares(y)).
 function TdxOnnxSemanticComparer.CosineSimilarity(const AEmbed1, AEmbed2: TEmbedding): Single;
-var
-  I: Integer;
-  A, B: Single;
-  AB, A2, B2: Single;
 begin
-  AB := 0;
-  A2 := 0;
-  B2 := 0;
-  for I := 0 to FDimensions - 1 do
-  begin
-    A := AEmbed1[i];
-    B := AEmbed2[i];
-
-    AB := AB + A * B;
-    A2 := A2 + A * A;
-    B2 := B2 + B * B;
-  end;
-
-  Result := AB / (Sqrt(A2) * Sqrt(B2));
+  Result := TEmbedding.Dot(AEmbed1, AEmbed2) / (AEmbed1.SumOfSquaresRoot * AEmbed2.SumOfSquaresRoot);
 end;
 
 constructor TdxOnnxSemanticComparer.Create;
@@ -255,6 +256,71 @@ begin
   finally
     AResponseStream.Free;
   end;
+end;
+
+{ TEmbedding }
+
+constructor TEmbedding.Create;
+begin
+  inherited Create;
+  FList := TList<Single>.Create;
+  FSumRoot := -1;
+end;
+
+destructor TEmbedding.Destroy;
+begin
+  FList.Free;
+  inherited;
+end;
+
+class function TEmbedding.Dot(AEmbedding1, AEmbedding2: TEmbedding): Single;
+var
+  I: Integer;
+  AList1: TList<Single>;
+  AList2: TList<Single>;
+begin
+  AList1 := AEmbedding1.FList;
+  AList2 := AEmbedding2.FList;
+
+  Result := 0;
+  for I := 0 to AList1.Count - 1 do
+    Result := Result + AList1.List[I] * AList2.List[I];
+end;
+
+function TEmbedding.GetCount: Integer;
+begin
+  Result := FList.Count;
+end;
+
+function TEmbedding.GetItem(AIndex: Integer): Single;
+begin
+  Result := FList[AIndex];
+end;
+
+procedure TEmbedding.SetCount(const AValue: Integer);
+begin
+  FList.Count := AValue;
+end;
+
+procedure TEmbedding.SetItem(AIndex: Integer; const AValue: Single);
+begin
+  FList.Items[AIndex] := AValue;
+  FSumRoot := -1;
+end;
+
+function TEmbedding.GetSumOfSquaresRoot: Single;
+var
+  I: Integer;
+  ASumOfSquares: Single;
+begin
+  if FSumRoot < 0 then
+  begin
+    ASumOfSquares := 0;
+    for I := 0 to FList.Count - 1 do
+      ASumOfSquares := ASumOfSquares + FList.List[I] * FList.List[I];
+    FSumRoot := Sqrt(ASumOfSquares);
+  end;
+  Result := FSumRoot;
 end;
 
 end.
