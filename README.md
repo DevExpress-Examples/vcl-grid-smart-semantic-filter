@@ -3,7 +3,16 @@
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 [![](https://img.shields.io/badge/💬_Leave_Feedback-feecdd?style=flat-square)](#does-this-example-address-your-development-requirementsobjectives)
 <!-- default badges end -->
-# vcl-grid-smart-semantic-filter
+# VCL Data Grid - Smart Semantic AI Filter
+
+This example implements AI-powered filter functionality for the [DevExpress VCL Data Grid](https://docs.devexpress.com/VCL/171093/ExpressQuantumGrid/vcl-data-grid). 
+
+## Prerequisites
+
+* Microsoft Windows 10 (64-bit) or newer
+* Embarcadero RAD Studio IDE 12 or newer (Community Edition is not supported)
+* DevExpress VCL Components v25.1.5 or newer
+
 <!-- feedback -->
 ## Does this example address your development requirements/objectives?
 
@@ -11,3 +20,4 @@
 
 (you will be redirected to DevExpress.com to submit your response)
 <!-- feedback end -->
+
