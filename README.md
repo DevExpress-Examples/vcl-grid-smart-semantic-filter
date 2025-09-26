@@ -5,7 +5,12 @@
 <!-- default badges end -->
 # VCL Data Grid - Smart Semantic AI Filter
 
-This example implements AI-powered filter functionality for the [DevExpress VCL Data Grid](https://docs.devexpress.com/VCL/171093/ExpressQuantumGrid/vcl-data-grid) using a lightweight ONNX moel and a BERT tokenizer.
+This example implements AI-powered filter functionality for the [DevExpress VCL Data Grid](https://docs.devexpress.com/VCL/171093/ExpressQuantumGrid/vcl-data-grid) using a lightweight ONNX model and a BERT tokenizer. Unlike standard search/filter operations available in the DevExpress VCL Data Grid, Smart AI Filter compares strings based on semantic similarities rather than exact matching.
+
+## Third-Party Dependencies
+
+* [TONXRuntime](https://github.com/hshatti/TONNXRuntime)
+* [BertTokenizer4D](https://github.com/Samaliani/BertTokenizer4D)
 
 ## Prerequisites
 
