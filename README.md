@@ -9,7 +9,7 @@ This example adds AI-powered filter capabilities to the [DevExpress VCL Data Gri
 
 ## Third-Party Dependencies
 
-* [TONXRuntime](https://github.com/hshatti/TONNXRuntime)
+* [TONNXRuntime](https://github.com/hshatti/TONNXRuntime)
 * [BertTokenizer4D](https://github.com/Samaliani/BertTokenizer4D)
 
 ## Prerequisites
@@ -37,4 +37,5 @@ Type a word or phrase into the **Smart Search AI Filter** field and click **Appl
 
 (you will be redirected to DevExpress.com to submit your response)
 <!-- feedback end -->
+
 
