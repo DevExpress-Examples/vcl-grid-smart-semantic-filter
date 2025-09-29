@@ -19,16 +19,16 @@ This example implements AI-powered filter functionality for the [DevExpress VCL 
 * Embarcadero RAD Studio IDE 12 or newer (Community Edition is not supported)
 * DevExpress VCL Components v25.1.5 or newer
 
-## Deploy and run
+## Deploy and Run
 
-1. Clone this repository: this operation automatically downloads required packages into **BertTokenizer4D** and **TONNXRuntime** folders
-2. Open and build the **SimilaritySearch** project (DPR)
-3. If using Windows 10 (64-bit), place the latest version of `onnxruntime.dll` (available in the [official repository](https://github.com/microsoft/onnxruntime)) into the folder containing the built executable file
-4. Run the sample project
+1. Clone this repository. Required dependencies automatically appear in **BertTokenizer4D** and **TONNXRuntime** folders.
+2. Open and build the **SimilaritySearch** project (DPR).
+3. If using Windows 10 (64-bit), place the latest version of `onnxruntime.dll` (available in the [official repository](https://github.com/microsoft/onnxruntime)) into the folder that contains the executable file.
+4. Run the sample project.
 
-## Testing the example
+## Testing the Example
 
-Type a word or phrase into the **Smart Search AI Filter** field and click **Apply**. Use **Smart Search AI Filter Settings** UI elements to configure AI-powered filtering functionality.
+Type a word or phrase into the **Smart Search AI Filter** field and click **Apply**.
 
 <!-- feedback -->
 ## Does this example address your development requirements/objectives?
