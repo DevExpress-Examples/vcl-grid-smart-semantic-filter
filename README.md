@@ -8,6 +8,8 @@
 
 This example adds AI-powered filter capabilities to the [DevExpress VCL Data Grid](https://docs.devexpress.com/VCL/171093/ExpressQuantumGrid/vcl-data-grid) (using a lightweight ONNX model and a BERT tokenizer). Unlike built-in search/filter operations, Smart AI Filter compares strings based on semantic similarities rather than exact matches.
 
+![An application that displays a search query "accessories" and a list of items filtered using the AI-powered smart search](./images/accessories.png)
+
 ## Third-Party Dependencies
 
 * [TONNXRuntime](https://github.com/hshatti/TONNXRuntime)
@@ -22,12 +24,20 @@ This example adds AI-powered filter capabilities to the [DevExpress VCL Data Gri
 
 ## Deploy and Run
 
-1. Clone this repository. Required dependencies automatically appear in **BertTokenizer4D** and **TONNXRuntime** folders.
+1. Clone this repository (including submodules):
+   ```sh
+   git clone --recurse-submodules git@github.com:DevExpress-Examples/vcl-grid-smart-semantic-filter.git
+   ```
+   If you have already cloned the repository without submodules, initialize them using the following command:
+   ```sh
+   git submodule update --init --recursive
+   ```
+
 2. Open and build the **SimilaritySearch** project (DPR).
 3. If using Windows 10 (64-bit), place the latest version of `onnxruntime.dll` (available in the [official repository](https://github.com/microsoft/onnxruntime)) into the executable file folder.
 4. Run the sample project.
 
-## Testing the Example
+## Test the Example
 
 Type a word or phrase into the **Smart Search AI Filter** field and click **Apply**.
 
