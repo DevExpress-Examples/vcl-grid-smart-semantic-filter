@@ -42,7 +42,7 @@ This example adds AI-powered filter capabilities to the [DevExpress VCL Data Gri
 Type a word or phrase into the **Smart Search AI Filter** field and click **Apply**.
 
 <!-- feedback -->
-## Does this example address your development requirements/objectives?
+## Does This Example Address Your Development Requirements/Objectives?
 
 [<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=vcl-grid-smart-semantic-filter&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=vcl-grid-smart-semantic-filter&~~~was_helpful=no)
 
